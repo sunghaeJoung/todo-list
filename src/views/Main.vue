@@ -27,7 +27,8 @@ export default {
       lists: [],
       list1: [],
       list2: [],
-      result: [],
+      list3: [],
+      result: []
     };
   },
   created() {
@@ -44,19 +45,29 @@ export default {
       }
     },
     handleList() {
-      this.lists.sort(function(a, b) {
-        return a.done - b.done;
-      });
       for (let i = 0; i < this.lists.length; i++) {
-        if (this.lists[i].done == 1 && this.lists[i].priority.length != 0) {
-          let b = this.lists.splice(i, 1);
-          this.list1.push(b[0]);
+        if (this.lists[i].priority.length != 0) {
+          this.list1.push(this.lists[i]);
+
+          // 우선순위있는 리스트 모은 배열을 우선순위 별로 정렬
+          this.list1.length > 1 &&
+            this.list1.sort(function(a, b) {
+              return a.priority - b.priority;
+            });
+        } else if (this.lists[i].done == 1) {
+          this.list2.push(this.lists[i]);
+
+          // 날짜 별로 정렬
+          this.list2.length > 1 &&
+            this.list2.sort(function(a, b) {
+              return a.priority - b.priority;
+            });
         } else {
-          let a = this.lists.splice(i, 1);
-          this.list2.push(a[0]);
+          this.list3.push(this.lists[i]);
         }
       }
-      this.result = this.lists.concat(this.list1, this.list2);
+      this.result = this.list3.concat(this.list1, this.list2);
+      console.log(this.result);
     },
     goToInput() {
       this.$router.push("/input");
@@ -73,8 +84,8 @@ export default {
     },
     modifyList(num) {
       this.$router.push({ name: "todoInput", params: { id: num } });
-    },
-  },
+    }
+  }
 };
 </script>
 
