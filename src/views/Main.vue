@@ -46,28 +46,27 @@ export default {
     },
     handleList() {
       for (let i = 0; i < this.lists.length; i++) {
-        if (this.lists[i].priority.length != 0) {
+        if (this.lists[i].done == 2) {
           this.list1.push(this.lists[i]);
-
-          // 우선순위있는 리스트 모은 배열을 우선순위 별로 정렬
-          this.list1.length > 1 &&
-            this.list1.sort(function(a, b) {
-              return a.priority - b.priority;
-            });
-        } else if (this.lists[i].done == 1) {
+        } else if (this.lists[i].priority.length != 0) {
           this.list2.push(this.lists[i]);
 
-          // 날짜 별로 정렬
+          // 우선순위있는 리스트 모은 배열을 우선순위 별로 정렬
           this.list2.length > 1 &&
             this.list2.sort(function(a, b) {
               return a.priority - b.priority;
             });
         } else {
           this.list3.push(this.lists[i]);
+
+          // 날짜 별로 정렬
+          this.list3.length > 1 &&
+            this.list3.sort(function(a, b) {
+              return a.priority - b.priority;
+            });
         }
       }
-      this.result = this.list3.concat(this.list1, this.list2);
-      console.log(this.result);
+      this.result = this.list1.concat(this.list2, this.list3);
     },
     goToInput() {
       this.$router.push("/input");
