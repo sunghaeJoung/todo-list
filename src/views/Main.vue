@@ -80,6 +80,7 @@ export default {
         alert("삭제에 실패했습니다.");
         console.log("err", err);
       }
+      window.location.reload();
     },
     modifyList(num) {
       this.$router.push({ name: "todoInput", params: { id: num } });

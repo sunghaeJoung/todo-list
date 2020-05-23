@@ -17,34 +17,18 @@
       "id": 2
     },
     {
-      "title": "그냥1",
-      "contents": "그냥",
-      "due": "2020.03.19",
+      "title": "날짜2",
+      "contents": "ㅇㄹㅇ",
+      "due": "2020.04.02",
       "priority": "",
-      "done": "1",
-      "id": 3
-    },
-    {
-      "title": "완료2",
-      "contents": "완료2",
-      "due": "2020.02.03",
-      "priority": "",
-      "done": "2",
-      "id": 4
-    },
-    {
-      "title": "우선순위1",
-      "contents": "순위2",
-      "due": "2020.04.03",
-      "priority": "1",
       "done": "1",
       "id": 5
     },
     {
-      "title": "그냥2",
-      "contents": "구냥",
-      "due": "2020.10.05",
-      "priority": "",
+      "title": "우선순위1",
+      "contents": "ㅇㄹㄴㅇ",
+      "due": "2020.03.01",
+      "priority": "1",
       "done": "1",
       "id": 6
     }
